@@ -111,13 +111,15 @@ $(element).scrollTo(target[,duration][,settings]);
 
 ### 4. duration/settings
 
-	1. 第二个参数为 `数字` 时，表示：滑动持续多长的时间。
- 	2. 第二个参数为 `对象` 时，表示：增加配置。
-     - **axis**：触发方向，默认xy，可以为x、y、xy；
-     - **interrupt**：用户中止滑动，通过鼠标滚轴等方式中止当前的滑动动画，默认false；
-     - **queue**：滑动动画队列，按顺序执行滑动的指令；
-     - **onAfter(target, settings)**：滑动完成时触发的事件；
-     - 其它配置参数，详见[官方文档](https://github.com/flesler/jquery.scrollTo#usage)。
+（1）第二个参数为 `数字` 时，表示：滑动持续多长的时间。
+
+（2）第二个参数为 `对象` 时，表示：增加配置。
+
+- **axis**：触发方向，默认xy，可以为x、y、xy；
+- **interrupt**：用户中止滑动，通过鼠标滚轴等方式中止当前的滑动动画，默认false；
+- **queue**：滑动动画队列，按顺序执行滑动的指令；
+- **onAfter(target, settings)**：滑动完成时触发的事件；
+- 其它配置参数，详见[官方文档](https://github.com/flesler/jquery.scrollTo#usage)。
 
 
 

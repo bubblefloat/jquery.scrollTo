@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑动插件 jquery.scrollTo</title>
+    <script src="jquery.scrollTo/jquery-3.6.0.min.js"></script>
+    <script src="jquery.scrollTo/jquery.scrollTo.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .demo {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .demo .actions {
+            width: 320px;
+            border-right: 1px solid gray;
+            overflow-y: auto;
+        }
+
+        .demo .actions>div {
+            padding-left: 10px;
+        }
+
+        .demo .content {
+            width: calc(100% - 320px);
+            overflow-y: auto;
+        }
+
+        .demo button {
+            margin: 5px;
+        }
+
+        .demo1,
+        .demo2,
+        .demo3 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <div class="actions">
+            <div class="demo1">
+                <h2>案例一：移动指定的距离</h2>
+                <button type="button" onclick="doAction('800px')">跳转到800px</button>
+                <button type="button" onclick="doAction('+=100px')">相对步长+=100px</button>
+                <button type="button" onclick="doAction('50%')">跳转到50%</button>
+                <button type="button" onclick="doAction('bottom')">滑到底部</button>
+            </div>
+            <div class="demo2">
+                <h2>案例二：移动到指定的元素</h2>
+                <button type="button" onclick="doAction2('#green')">绿色</button>
+                <button type="button" onclick="doAction2('#pink')">粉色</button>
+                <button type="button" onclick="doAction2('#red')">暗红</button>
+                <button type="button" onclick="doAction2('#blue')">蓝色</button>
+            </div>
+            <div class="demo3">
+                <h2>案例三：移动到指定的元素<br>(带过渡效果)</h2>
+                <button type="button" onclick="doAction3('#green', 500)">绿色(0.5s)</button>
+                <button type="button" onclick="doAction3('#pink', 1000)">粉色(1s)</button>
+                <button type="button" onclick="doAction3('#red', 2000)">暗红(2s)</button>
+                <button type="button" onclick="doAction3('#blue', 3000)">蓝色(3s)</button>
+            </div>
+            <div class="demo4">
+                <h2>案例四：滑动参数及事件</h2>
+                <div>滚动到蓝色区域</div>
+                <button type="button" onclick="doAction4()">触发</button>
+                <span style="color: red;" id="text"></span>
+                <div>
+                    滑动持续时间：<input type="text" id="duration" value="1000">
+                </div>
+                <div>
+                    触发方向(axis)：<input type="text" id="axis" value="xy" placeholder="x、y、xy">
+                </div>
+                <div>
+                    滚轮中止滑动(interrupt)：<input type="checkbox" id="interrupt">
+                </div>
+                <div>
+                    最终位置(offset)：<input type="text" id="offset" value="0">
+                </div>
+                <div>
+                    滑动队列(queue)：<input type="checkbox" id="queue">
+                </div>
+                <div>
+                    滑动结束事件(onAfter)：<input type="checkbox" id="onAfter">
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div style="height: 400px; background:greenyellow;" id="green">绿色：400px</div>
+            <div style="height: 500px; background:hotpink;" id="pink">粉色：500px</div>
+            <div style="height: 400px; background:indianred;" id="red">暗红：400px</div>
+            <div style="height: 500px; background:blue;" id="blue">
+                <span>蓝色：500px</span>
+                <span style="float: right;" id="blue-right">蓝色右侧</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    // 跳转方法 - 指定位移
+    function doAction(type) {
+        switch (type) {
+            // 跳转到800px
+            case '800px':
+                $('.content').scrollTo('800px')
+                // $('.content').scrollTo(800)
+                break
+            // 相对步长+=100p
+            case '+=100px':
+                $('.content').scrollTo('+=100px')
+                break
+            // 跳转到50%
+            case '50%':
+                $('.content').scrollTo('50%')
+                break;
+            // 滑到底部
+            case 'bottom':
+                $('.content').scrollTo('max')
+                break
+        }
+    }
+
+    // 跳转方法 - 指定元素
+    function doAction2(id) {
+        $('.content').scrollTo(id)
+    }
+
+    // 跳转方法 - 指定元素 - 带过渡
+    function doAction3(id, duration = 1000) {
+        $('.content').scrollTo(id, duration)
+    }
+
+    // 跳转方法 - 滑动参数及事件
+    function doAction4() {
+        // 参数
+        var duration = $('#duration').val()
+        var axis = $('#axis').val()
+        var interrupt = $('#interrupt').prop('checked')
+        var offset = $('#offset').val()
+        var queue = $('#queue').prop('checked')
+        var onAfter = $('#onAfter').prop('checked')
+        if (queue) {
+            $('#text').text('滑动到粉色(2s)，再滑动到蓝色(3s)')
+            setTimeout(() => {
+                $('#text').text('')
+            }, 5000);
+            $('.content').scrollTo('#pink', {
+                queue: true,
+                duration: 2000
+            })
+            setTimeout(() => {
+                $('.content').scrollTo('#blue', {
+                    queue: true,
+                    duration: 3000
+                })
+            }, 2000);
+            return
+        }
+        if (onAfter) {
+            onAfter = function (target, settings) {
+                console.log(target);
+                console.log(settings);
+                alert('滑动结束：' + target[0].id)
+            }
+        }
+        // 元素
+        var id = '#blue'
+        if (axis == 'x') {
+            id = '#blue-right'
+        }
+        // 跳转
+        $('.content').scrollTo(id, {
+            duration: parseInt(duration),
+            axis: axis,
+            interrupt: interrupt,
+            offset: offset,
+            onAfter: onAfter
+        })
+    }
+</script>
+
+</html>

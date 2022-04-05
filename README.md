@@ -127,7 +127,7 @@ $(element).scrollTo(target[,duration][,settings]);
 
 ### 1. 移动指定的距离
 
-![demo1](F:\公众号\文章\Javascript\2022-04-05 JQuery.scrollTo插件\素材\demo1\demo1.gif)
+![demo1](https://s3.bmp.ovh/imgs/2022/04/05/5e55c02d72e1db05.gif)
 
 ```js
 // 跳转方法 - 指定位移
@@ -156,7 +156,7 @@ function doAction(type) {
 
 ### 2. 移动到指定的元素
 
-![demo2](F:\公众号\文章\Javascript\2022-04-05 JQuery.scrollTo插件\素材\demo2\demo2.gif)
+![demo2](https://s3.bmp.ovh/imgs/2022/04/05/7f480fb7539968bd.gif)
 
 ```js
 // 跳转方法 - 指定元素
@@ -168,7 +168,7 @@ function doAction2(id) {
 
 ### 3. 设置滑动参数及事件
 
-![demo3](F:\公众号\文章\Javascript\2022-04-05 JQuery.scrollTo插件\素材\demo3\demo3.gif)
+![demo3](https://s3.bmp.ovh/imgs/2022/04/05/af4ff086d0f8b00c.gif)
 
 ```js
 // 跳转方法 - 滑动参数及事件
@@ -211,4 +211,4 @@ function doAction4() {
 
 
 
-![公众号二维码](F:\公众号\素材\公共图片\公众号二维码.png)
+![公众号二维码](https://s3.bmp.ovh/imgs/2022/04/05/b28ba60b71730f54.png)

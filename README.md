@@ -70,7 +70,7 @@ php composer.phar require --prefer-dist flesler/jquery.scrollto "*"
 >```js
 >$('可滑动区域的元素').scrollTo(
 >	'滑动至指定的元素',
->    '持续时间'
+>    	'持续时间'
 >)
 >```
 
@@ -129,7 +129,7 @@ $(element).scrollTo(target[,duration][,settings]);
 
 ### 1. 移动指定的距离
 
-![demo1](https://s3.bmp.ovh/imgs/2022/04/05/5e55c02d72e1db05.gif)
+![demo1](https://gitee.com/bubblefloat/drawing-bed/raw/master/images/202204062328594.gif)
 
 ```js
 // 跳转方法 - 指定位移
@@ -158,7 +158,7 @@ function doAction(type) {
 
 ### 2. 移动到指定的元素
 
-![demo2](https://s3.bmp.ovh/imgs/2022/04/05/7f480fb7539968bd.gif)
+![demo2](https://gitee.com/bubblefloat/drawing-bed/raw/master/images/202204062328622.gif)
 
 ```js
 // 跳转方法 - 指定元素
@@ -170,7 +170,7 @@ function doAction2(id) {
 
 ### 3. 设置滑动参数及事件
 
-![demo3](https://s3.bmp.ovh/imgs/2022/04/05/af4ff086d0f8b00c.gif)
+![demo3](https://gitee.com/bubblefloat/drawing-bed/raw/master/images/202204062328881.gif)
 
 ```js
 // 跳转方法 - 滑动参数及事件
@@ -213,4 +213,4 @@ function doAction4() {
 
 
 
-![公众号二维码](https://s3.bmp.ovh/imgs/2022/04/05/b28ba60b71730f54.png)
+![公众号二维码](https://gitee.com/bubblefloat/drawing-bed/raw/master/images/公众号.png)

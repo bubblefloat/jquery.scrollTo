@@ -129,7 +129,7 @@ $(element).scrollTo(target[,duration][,settings]);
 
 ### 1. 移动指定的距离
 
-![demo1](https://gitee.com/bubblefloat/drawing-bed/raw/master/images/202204062328594.gif)
+![demo1](https://gitee.com/bubblefloat/drawing-bed/raw/master/images/202204062328881.gif)
 
 ```js
 // 跳转方法 - 指定位移
@@ -170,7 +170,7 @@ function doAction2(id) {
 
 ### 3. 设置滑动参数及事件
 
-![demo3](https://gitee.com/bubblefloat/drawing-bed/raw/master/images/202204062328881.gif)
+![demo3](https://gitee.com/bubblefloat/drawing-bed/raw/master/images/202204062328594.gif)
 
 ```js
 // 跳转方法 - 滑动参数及事件
